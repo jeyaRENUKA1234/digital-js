@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <div class="point">
+        <div class="card">
+    <div class="one">
+        <span>Date</span>
+        <span>Month</span>
+        <span>Year</span>
+    </div>
+    <div class="two">
+        <span id="dates"></span>
+        <span id="months"></span>
+        <span id="years"></span>
+    </div>
+    <div class="three">
+        <span>Hour</span>
+        <span>Minute</span>
+        <span>Seconds</span>
+    </div>
+    <div class="four">
+        <span id="hours"></span><span class="star">:</span>
+        <span id="minutes"></span><span class="star">:</span>
+        <span id="seconds"></span>
+    </div>
+    <div class="five">
+        <input type="radio" class="sum" id="sun">Sun
+        <input type="radio" class="sum" id="mon">Mon
+        <input type="radio" class="sum" id="thus">Thus
+        <input type="radio" class="sum" id="wed">Wednes
+        <input type="radio" class="sum" id="thurs">Thurs
+        <input type="radio"  class="sum"id="fri">Fri
+        <input type="radio" class="sum" id="satur">Satur
+    </div>
+    <div class="six">
+       <div><input type="radio" id="am1">AM</div>
+        <div> <input type="radio" id="pm1">PM</div>
+    </div>
+        </div>
+    </div>
+    <script>
+        let mydate=document.getElementById("dates")
+        let mymonth=document.getElementById("months")
+        let myyear=document.getElementById("years")
+        let myhours=document.getElementById("hours")
+        let myminutes=document.getElementById("minutes")
+        let myseconds=document.getElementById("seconds")
+        let sunday=document.getElementById("sun")
+        let monday=document.getElementById("mon")
+        let thusday=document.getElementById("thus")
+        let wednesday=document.getElementById("wed")
+        let thursday=document.getElementById("thurs")
+        let friday=document.getElementById("fri")
+        let saturday=document.getElementById("satur")
+        let amtime=document.getElementById("am1")
+        let pmtime=document.getElementById("pm1")
+        let times=new Date();
+        let todaydate=times.getDate();
+        let todaymonth=times.getMonth()+1;
+        todaymonth = todaymonth < 10 ? '0'+todaymonth : todaymonth;
+         let todayyear=times.getFullYear();
+        let todayday=times.getDay();
+        mydate.innerHTML=todaydate;
+        mymonth.innerHTML=todaymonth;
+        myyear.innerHTML=todayyear;
+        let todayhour=times.getHours();
+        let tym = ()=>{
+         let times=new Date();
+        let todayhour=times.getHours();
+        let todayminutes=times.getMinutes();
+       todayminutes = todayminutes< 10 ? '0'+todayminutes : todayminutes;
+        let todayseconds=times.getSeconds();
+        todayseconds = todayseconds< 10 ? '0'+todayseconds :todayseconds;
+        
+        myhours.innerHTML=todayhour;
+        myminutes.innerHTML= todayminutes;
+        myseconds.innerHTML=todayseconds;
+        }
+
+        setInterval(tym,1000);
+        switch(todayday){
+            case 0:
+                sunday.setAttribute("checked","checked");
+                break;
+            case 1:
+                monday.setAttribute("checked","checked");
+                break;
+            case 2:
+                thusday.setAttribute("checked","checked");
+                break;
+            case 3:
+                wednesday.setAttribute("checked","checked");
+                break;
+            case 4:
+                thursday.setAttribute("checked","checked");
+                break;
+            case 5:
+                friday.setAttribute("checked","checked");
+                break;
+            case 6:
+                saturday.setAttribute("checked","checked")
+                break;
+            }
+        if(todayhour>12){
+            pmtime.setAttribute("checked","checked");
+        }
+        else{
+            amtime.setAttribute("checked","checked");
+        }
+        
+
+    </script>
+</body>
+</html>
+	
